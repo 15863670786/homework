@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>实验二</title>
+
+
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f8f8;
+			color: #333;
+		}
+
+		.container.main {
+			background-color: #fff;
+			padding: 20px;
+		}
+
+		.row {
+			display: flex;
+		}
+
+		.runoob-col-md2 {
+			width: 20%;
+		}
+
+		.left-column.site-fix {
+			background-color: #f1f1f1;
+			padding: 10px;
+		}
+
+		.tab {
+			background-color: #4caf50;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.sidebar-box.gallery-list {
+			background-color: #fff;
+			padding: 10px;
+		}
+
+		.design a {
+			display: block;
+			padding: 5px;
+			color: #555;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		.design a:hover {
+			background-color: #4caf50;
+			color: #fff;
+		}
+
+		.col.middle-column {
+			width: 80%;
+		}
+
+		.article-heading-ad {
+			background-color: #ddd;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+		}
+
+		.article-body {
+			padding: 20px;
+		}
+
+		.article-intro h1 {
+			color: #2196f3;
+		}
+
+		.tutintro img {
+			border: 2px solid #4caf50;
+		}
+
+		.tutintro p {
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		.search-input input {
+			border: 2px solid #4caf50;
+			padding: 10px;
+			width: 300px;
+			font-size: 16px;
+		}
+
+		.tryitbtn {
+			background-color: #4caf50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		.tryitbtn:hover {
+			background-color: #2196f3;
+		}
+
+		.example_code label {
+			font-weight: bold;
+			color: #4caf50;
+		}
+
+		textarea {
+			border: 2px solid #4caf50;
+			padding: 10px;
+			font-size: 16px;
+			resize: vertical;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container main">
+	<div class="row">
+		<div class="runoob-col-md2">
+			<div class="left-column site-fix">
+				<div class="tab">
+					<span>4种结构</span>
+				</div>
+				<div class="sidebar-box gallery-list">
+					<div class="design" id="leftcolumn">
+						<a target="_top" data-p="par" style="background-color: #4caf50; font-weight: bold; color: #fff;">主程序-子程序</a>
+						<a target="_top" data-p="par" href="oo.html">面向对象</a>
+						<a target="_top" data-p="par" href="event.html">事件系统</a>
+						<a target="_top" data-p="par" href="pipe.html">管道-过滤</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col middle-column">
+			<div class="article">
+				<div class="article-heading-ad">
+					<script async="" src="HTML/f(8).txt" crossorigin="anonymous" data-checked-head="true"></script>
+					<!-- 728*90 固定 -->
+				</div>
+				<div class="article-body">
+					<div class="article-intro" id="content">
+						<h1 style="text-align: center; color: #2196f3;"><span class="color_h1">主程序-子程序</span></h1>
+						<div class="tutintro">
+							<!--	这个 img 是 html 图标位置 -->
+							<img decoding="async" src="./img/mp.png">
+							<p>主程序-子程序软件体系结构乃是一种常见的软件设计架构。</p>
+							<p>其用于将复杂的软件系统拆分为主程序与多个子程序（亦可称为模块、组件），以实现功能的划分与组织。这种体系结构有益于提升软件的可维护性、可扩展性以及代码的重用性。</p>
+						</div>
+
+						<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+						<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+						<div class="example">
+							<div class="example" id="input-output">
+								<h2 class="example">程序验证</h2>
+								<div class="search-input">
+									<input class="placeholder" id="s" name="s" v-model="inputText" placeholder="请输入" onclick="sendGetRequest()" autocomplete="off" style="height: 44px;">
+								</div>
+								<br>
+								<button @click="sendGetRequest" class="tryitbtn" rel="noopener noreferrer">提交 »</button>
+								<br>
+								<div class="example_code">
+                                    <span class="hl-brackets">
+                                        <label for="output">输出：</label>
+                                        <textarea id="output" rows="4" cols="50">{{ outputText }}</textarea>
+                                    </span>
+									<script>
+										new Vue({
+											el: '#input-output',
+											data: {
+												inputText: '',
+												outputText: ''
+											},
+											methods: {
+												sendGetRequest() {
+													axios.get('/main-program', {
+														params: {
+															input: this.inputText
+														}
+													})
+															.then(response => {
+																this.outputText = response.data;
+																console.log(response);
+															})
+															.catch(error => {
+																console.error(error);
+															});
+												}
+											}
+										});
+									</script>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-box ">
+						<style>
+							.responsive_ad1 {
+								display: none;
+							}
+
+							@media(min-width: 800px) {
+								.responsive_ad1 {
+									display: block;
+									margin: 0 auto;
+								}
+							}
+						</style>
+						<div id="ad-336280">
+							<script async="" src="HTML/f(8).txt" crossorigin="anonymous" data-checked-head="true"></script>
+							<!-- 移动版 自动调整 -->
+							<!-- 右边栏 -->
+							<div class="fivecol last right-column">
+								<style>
+									.sidebar-tree.double-li {
+										width: 300px;
+									}
+
+									.sidebar-tree.double-li li {
+										width: 44%;
+										line-height: 1.5em;
+										border-bottom: 1px solid #ccc;
+										float: left;
+										display: inline;
+									}
+								</style>
+								<br>
+								<script>
+									var aid = 1;
+									function coll() {
+										$.post('/wp-content/themes/runoob/option/user/userinfo.php', {
+											aid: aid,
+											action: "collarticle",
+											opt: 'add'
+										}, function (data) {
+											if (data.error === 0) {
+												$("#content").find("h1:first").find("a").attr("href", "javascript:void(0);");
+												$("#content").find("h1:first").find("img").attr("src", "http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({
+													width: 32 + "px",
+													height: 32 + "px"
+												});
+											}
+											alert(data.msg);
+										}, 'json');
+									}
+								</script>
+								<script async="" src="HTML/js(1)"></script>
+								<script>
+									window.dataLayer = window.dataLayer || [];
+									function gtag() {
+										dataLayer.push(arguments);
+									}
+									gtag('js', new Date());
+									gtag('config', 'UA-84264393-2');
+								</script>
+								<script>
+									var _hmt = _hmt || [];
+									(function () {
+										var hm = document.createElement("script");
+										hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+										var s = document.getElementsByTagName("script")[0];
+										s.parentNode.insertBefore(hm, s);
+									})();
+								</script>
+							</div>
+							<script>
+								window.jsui = {
+									www: 'https://www.runoob.com',
+									uri: 'https://www.runoob.com/wp-content/themes/runoob'
+								};
+							</script>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
